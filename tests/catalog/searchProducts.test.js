@@ -7,7 +7,11 @@ describe("searchProducts", () => {
     expect(Array.isArray(result)).toBe(true);
   });
 
-  test.todo("'Наушники' возвращает товар с ID 1");
+  test("'Наушники' возвращает товар с ID 1", () => {
+    const result = searchProducts(products, "Наушники");
+    const resultIdArray = result.map((p) => p.id);
+    expect(resultIdArray).toEqual([1]);
+  });
   test.todo("'Чистый код' возвращает товар с ID 6");
   test.todo("'Настольная лампа' возвращает товар с ID 4");
   test.todo("'javascript' возвращает товар с ID 3");
