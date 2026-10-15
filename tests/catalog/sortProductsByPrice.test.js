@@ -172,5 +172,9 @@ describe("sortProductsByPrice", () => {
     expect(catalog).toEqual(catalogCopy);
   });
 
-  test.todo("направление по умолчанию не меняет исходный массив всех товаров");
+  test("направление по умолчанию не меняет исходный массив всех товаров", () => {
+    const productsCopy = JSON.parse(JSON.stringify(products));
+    sortProductsByPrice(products);
+    expect(products).toEqual(productsCopy);
+  });
 });
