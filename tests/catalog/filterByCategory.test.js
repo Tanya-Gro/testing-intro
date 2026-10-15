@@ -50,5 +50,9 @@ describe("filterByCategory", () => {
     expect(resultIdArray).toEqual([]);
   });
 
-  test.todo("'sports' возвращает пустой массив");
+  test("'sports' возвращает пустой массив", () => {
+    const result = filterByCategory(products, "sports");
+    const resultIdArray = result.map((p) => p.id);
+    expect(resultIdArray).toEqual([]);
+  });
 });
