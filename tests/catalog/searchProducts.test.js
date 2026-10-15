@@ -1,7 +1,12 @@
-const products = require('../../src/data/products');
-const { searchProducts } = require('../../src/catalog');
+const products = require("../../src/data/products");
+const { searchProducts } = require("../../src/catalog");
 
-describe('searchProducts', () => {
+describe("searchProducts", () => {
+  test("searchProducts для 'Наушники' возвращает массив", () => {
+    const result = searchProducts(products, "Наушники");
+    expect(Array.isArray(result)).toBe(true);
+  });
+
   test.todo("'Наушники' возвращает товар с ID 1");
   test.todo("'Чистый код' возвращает товар с ID 6");
   test.todo("'Настольная лампа' возвращает товар с ID 4");
