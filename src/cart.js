@@ -7,18 +7,26 @@ function addToCart(cart, product, count) {
 
   const productInCart = cart.find((p) => p.id === product.id);
   if (productInCart) {
-    if (product.stock < productInCart.quantity + count) throw new RangeError();
-    return cart.map((p) =>
-      p.id === product.id ? { ...p, quantity: p.quantity + count } : p,
+    return changeQuantity(
+      cart,
+      productInCart.id,
+      productInCart.quantity + count,
     );
   }
 
   return [...cart, { ...product, quantity: count }];
 }
 
-function changeQuantity() {
-  return notImplemented();
+function changeQuantity(cart, id, qua) {
+  const product = cart.find((p) => p.id === id);
+
+  if (!product) return cart;
+
+  if (qua === 0 || product.stock < qua) throw new RangeError();
+
+  return cart.map((p) => (p.id === id ? { ...p, quantity: qua } : p));
 }
+
 function removeFromCart() {
   return notImplemented();
 }
