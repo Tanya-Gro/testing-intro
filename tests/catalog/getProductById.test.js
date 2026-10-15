@@ -17,10 +17,33 @@ describe("getProductById", () => {
     expect(result).toEqual(products[5]);
   });
 
-  test.todo("ID 0 возвращает null");
-  test.todo("ID 999 возвращает null");
-  test.todo("ID -1 возвращает null");
-  test.todo("строковый ID '1' возвращает null");
-  test.todo("ID undefined возвращает null");
-  test.todo("ID NaN возвращает null");
+  test("ID 0 возвращает null", () => {
+    const result = getProductById(products, 0);
+    expect(result).toEqual(null);
+  });
+
+  test("ID 999 возвращает null", () => {
+    const result = getProductById(products, 999);
+    expect(result).toEqual(null);
+  });
+
+  test("ID -1 возвращает null", () => {
+    const result = getProductById(products, -1);
+    expect(result).toEqual(null);
+  });
+
+  test("строковый ID '1' возвращает null", () => {
+    const result = getProductById(products, "1");
+    expect(result).toEqual(null);
+  });
+
+  test("ID undefined возвращает null", () => {
+    const result = getProductById(products, undefined);
+    expect(result).toEqual(null);
+  });
+
+  test("ID NaN возвращает null", () => {
+    const result = getProductById(products, NaN);
+    expect(result).toEqual(null);
+  });
 });
