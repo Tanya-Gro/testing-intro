@@ -12,7 +12,12 @@ describe("searchProducts", () => {
     const resultIdArray = result.map((p) => p.id);
     expect(resultIdArray).toEqual([1]);
   });
-  test.todo("'Чистый код' возвращает товар с ID 6");
+
+  test("'Чистый код' возвращает товар с ID 6", () => {
+    const result = searchProducts(products, "Чистый код");
+    const resultIdArray = result.map((p) => p.id);
+    expect(resultIdArray).toEqual([6]);
+  });
   test.todo("'Настольная лампа' возвращает товар с ID 4");
   test.todo("'javascript' возвращает товар с ID 3");
   test.todo("'ЧЕХОЛ' возвращает товар с ID 5");
