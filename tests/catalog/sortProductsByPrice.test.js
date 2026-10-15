@@ -111,7 +111,37 @@ describe("sortProductsByPrice", () => {
     const resultIdArray = result.map((p) => p.id);
     expect(resultIdArray).toEqual([2, 5, 6]);
   });
-  test.todo("'asc' не меняет исходный массив [1, 3, 4]");
+
+  test("'asc' не меняет исходный массив [1, 3, 4]", () => {
+    const catalog = [
+      {
+        id: 1,
+        name: "Наушники",
+        category: "electronics",
+        price: 49900,
+        stock: 8,
+      },
+      {
+        id: 3,
+        name: "JavaScript для начинающих",
+        category: "books",
+        price: 18900,
+        stock: 14,
+      },
+      {
+        id: 4,
+        name: "Настольная лампа",
+        category: "home",
+        price: 27900,
+        stock: 3,
+      },
+    ];
+    const catalogCopy = JSON.parse(JSON.stringify(catalog));
+    const result = sortProductsByPrice(catalog, "asc");
+    expect(result.map((p) => p.id)).toEqual([3, 4, 1]);
+    expect(catalog).toEqual(catalogCopy);
+  });
+
   test.todo("'desc' не меняет исходный массив [1, 3, 4]");
   test.todo("направление по умолчанию не меняет исходный массив всех товаров");
 });
