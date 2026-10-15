@@ -83,7 +83,34 @@ describe("sortProductsByPrice", () => {
     expect(resultIdArray).toEqual([1, 4, 3]);
   });
 
-  test.todo("товары [5, 2, 6] c 'desc' сортируются как [2, 5, 6]");
+  test("товары [5, 2, 6] c 'desc' сортируются как [2, 5, 6]", () => {
+    const catalog = [
+      {
+        id: 5,
+        name: "Чехол для ноутбука",
+        category: "home",
+        price: 24900,
+        stock: 6,
+      },
+      {
+        id: 2,
+        name: "Клавиатура",
+        category: "electronics",
+        price: 35900,
+        stock: 0,
+      },
+      {
+        id: 6,
+        name: "Чистый код",
+        category: "books",
+        price: 21900,
+        stock: 0,
+      },
+    ];
+    const result = sortProductsByPrice(catalog, "desc");
+    const resultIdArray = result.map((p) => p.id);
+    expect(resultIdArray).toEqual([2, 5, 6]);
+  });
   test.todo("'asc' не меняет исходный массив [1, 3, 4]");
   test.todo("'desc' не меняет исходный массив [1, 3, 4]");
   test.todo("направление по умолчанию не меняет исходный массив всех товаров");
