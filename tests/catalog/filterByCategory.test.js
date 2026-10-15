@@ -22,7 +22,11 @@ describe("filterByCategory", () => {
     const resultIdArray = result.map((p) => p.id);
     expect(resultIdArray).toEqual([1, 2]);
   });
-  test.todo("'books' возвращает товары с ID [3, 6]");
+  test("'books' возвращает товары с ID [3, 6]", () => {
+    const result = filterByCategory(products, "books");
+    const resultIdArray = result.map((p) => p.id);
+    expect(resultIdArray).toEqual([3, 6]);
+  });
   test.todo("'home' возвращает товары с ID [4, 5]");
   test.todo("'clothes' возвращает пустой массив");
   test.todo("'toys' возвращает пустой массив");
